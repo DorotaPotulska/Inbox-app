@@ -3,6 +3,7 @@ package io.javabrains.inbox.emaillist;
 import java.util.UUID;
 
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyClass;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 
@@ -16,6 +17,7 @@ public class EmailListItemKey {
     private String label;
 
     @PrimaryKeyColumn(name = "created_time_uuid", ordinal = 2, type = PrimaryKeyType.CLUSTERED)
+    @CassandraType(type = CassandraType.Name.TIMEUUID)
     private UUID timeUUID;
 
     public String getId() {
